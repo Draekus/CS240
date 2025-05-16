@@ -1,0 +1,19 @@
+PRINT 1
+SEARCH chocolate cake with frosting
+SEARCH apple pie is tasty
+SORT 2
+PRINT 2
+REMOVE banana split dessert
+APPEND 0 2
+PRINT 0
+REMOVE carrot cake with frosting
+PRINT 1
+PRINT_LONGEST 2
+REMOVE chocolate cake with frosting
+SORT 1
+PRINT 1
+APPEND 2 0
+PRINT 2
+REMOVE apple pie is tasty
+PRINT_ALL
+PRINT_LONGEST_FILE

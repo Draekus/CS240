@@ -1,0 +1,20 @@
+SEARCH chocolate cake with frosting
+SEARCH banana split dessert
+SORT 0
+PRINT 0
+REMOVE carrot cake with frosting
+APPEND 2 1
+PRINT 2
+PRINT_LONGEST 0
+REMOVE date fruit is sweet
+SORT 1
+PRINT 1
+APPEND 1 0
+PRINT 1
+PRINT_LONGEST_FILE
+REMOVE banana split dessert
+SEARCH chocolate cake with frosting
+SORT 2
+PRINT 2
+REMOVE apple pie is tasty
+PRINT_ALL

@@ -1,0 +1,22 @@
+PRINT 0
+PRINT 1
+PRINT 2
+SEARCH carrot cake with frosting
+SEARCH apple pie is tasty
+SORT 2
+PRINT 2
+REMOVE date fruit is sweet
+APPEND 0 1
+PRINT 0
+PRINT_LONGEST_FILE
+REMOVE chocolate cake with frosting
+SEARCH carrot cake with frosting
+SEARCH apple pie is tasty
+SORT 0
+PRINT 0
+REMOVE banana split dessert
+APPEND 1 2
+PRINT 1
+PRINT_LONGEST 1
+REMOVE apple pie is tasty
+PRINT_ALL
