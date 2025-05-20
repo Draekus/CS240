@@ -1,12 +1,4 @@
-10
-./hw4/file01.in
-./hw4/file07.in
-./hw4/file08.in
-./hw4/file05.in
-./hw4/file02.in
-./hw4/file03.in
-./hw4/file06.in
-./hw4/file09.in
-./hw4/file04.in
-./hw4/file00.in
-./hw4/command07.in
+1
+1 3.5 John Doe
+REMOVE 999
+PRINT_ALL

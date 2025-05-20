@@ -1,9 +1,9 @@
-7
-./hw4/file07.in
-./hw4/file00.in
-./hw4/file01.in
-./hw4/file03.in
-./hw4/file05.in
-./hw4/file09.in
-./hw4/file02.in
-./hw4/command04.in
+4
+5 3.3 Zoe Alpha
+2 2.8 Liam Zane
+4 3.6 Amy Delta
+3 3.5 Noah Gamma
+SORT NAME
+PRINT_ALL
+SORT GPA
+PRINT_ALL

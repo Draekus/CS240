@@ -1,5 +1,5 @@
-3
-./hw4/file01.in
-./hw4/file03.in
-./hw4/file02.in
-./hw4/command05.in
+1
+10 3.0 Dan Brown
+ADD 20 3.8 Sara Connor
+REMOVE 20
+PRINT_ALL

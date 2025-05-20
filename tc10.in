@@ -1,12 +1,10 @@
-10
-./hw4/file03.in
-./hw4/file03.in
-./hw4/file03.in
-./hw4/file03.in
-./hw4/file03.in
-./hw4/file05.in
-./hw4/file05.in
-./hw4/file05.in
-./hw4/file05.in
-./hw4/file05.in
-./hw4/command10.in
+3
+1001 3.3 John Lennon
+1002 3.1 Paul McCartney
+1003 2.9 George Harrison
+ADD 1004 3.8 Ringo Starr
+REMOVE 1002
+SORT GPA
+PRINT_ALL
+PRINT_ABOVE 3.0
+PRINT 1004
