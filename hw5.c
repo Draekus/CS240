@@ -32,12 +32,12 @@ int main() {
     float gpa;
     char *buffer = malloc(1024 * sizeof(char));
     size_t buffer_size = 1024;
-    char *first_name = malloc(1024 * sizeof(char));
-    char *last_name = malloc(1024 * sizeof(char));
-    if (!buffer || !first_name || !last_name || buffer_size <= 0) {
+    char *name = malloc(1024 * sizeof(char));
+    
+    if (!buffer || !name|| buffer_size <= 0) {
         fprintf(stderr, "Memory allocation of text buffers failed\n");
         free(buffer);
-        free(first_name);
+        free(name);
         return 1;
     }
     
@@ -57,30 +57,36 @@ int main() {
             freeList(&head);
             return 1;
         }
-        
-        // Parse student data
-        if (sscanf(buffer, "%d %f %s %s", &id, &gpa, first_name, last_name) != 4) {
+            
+        // Parse student ID and GPA
+        if (sscanf(buffer, "%d %f", &id, &gpa) != 2) {
             fprintf(stderr, "Error parsing student data\n");
             freeList(&head);
             return 1;
         }
-        // Concatenate first and last name using pointers
-        char *name = malloc(strlen(first_name) + strlen(last_name) + 2);
-        if (!name) {
-            fprintf(stderr, "Memory allocation for name failed\n");
-            freeList(&head);
-            return 1;
+
+        // Find position after GPA
+        char *nameStart = buffer;
+        int spaces = 0;
+        while (*nameStart && spaces < 2) {
+        if (isspace((unsigned char)*nameStart)) spaces++;
+            nameStart++;
         }
-        strcpy(name, first_name);
-        strcat(name, " ");
-        strcat(name, last_name);
+
+        // Skip any additional spaces
+        while (*nameStart && isspace((unsigned char)*nameStart)) nameStart++;
+
+        // Copy name
+        strcpy(name, nameStart);
+
         // Trim trailing whitespace from name
         char *trimmedName = trimWhiteSpace(name);
         
+
         // Create and add new student to the list
         Student *newStudent = createStudent(id, gpa, trimmedName);
         if (!newStudent) {
-            fprintf(stderr, "Memory allocation for newStudent() failed\n");
+            fprintf(stderr, "Memory allocation failed\n");
             freeList(&head);
             return 1;
         }
@@ -99,31 +105,31 @@ int main() {
                 printStudentById(head, id);
             }
         } else if (strncmp(buffer, "ADD ", 4) == 0) {
+            // Parse student ID and GPA
             char *ptr = buffer + 4;
-            if (sscanf(ptr, "%d %f %s %s", &id, &gpa, first_name, last_name) == 4) {
-                // Concatenate first and last name using pointers
-                char *name = malloc(strlen(first_name) + strlen(last_name) + 2);
-                if (!name) {
-                fprintf(stderr, "Memory allocation for name failed\n");
-                freeList(&head);
-                return 1;
-             }
-                strcpy(name, first_name);
-                strcat(name, " ");
-                strcat(name, last_name);
+            if (sscanf(ptr, "%d %f", &id, &gpa) == 2) {
+                // Find position after GPA
+                char *nameStart = ptr;
+                int spaces = 0;
+                while (*nameStart && spaces < 2) {
+                    if (isspace((unsigned char)*nameStart)) spaces++;
+                    nameStart++;
+                }
+                
+                // Skip any additional spaces
+                while (*nameStart && isspace((unsigned char)*nameStart)) nameStart++;
+                
+                // Copy name
+                strcpy(name, nameStart);
+                
                 // Trim trailing whitespace from name
                 char *trimmedName = trimWhiteSpace(name);
-        
-                // Create and add new student to the list
+                
                 Student *newStudent = createStudent(id, gpa, trimmedName);
-                if (!newStudent) {
-                    fprintf(stderr, "Memory allocation for newStudent() failed\n");
-                    freeList(&head);
-                return 1;
+                if (newStudent) {
+                    addStudent(&head, newStudent);
                 }
-        
-            addStudent(&head, newStudent);
-        }
+            }
        
         } else if (strncmp(buffer, "REMOVE ", 7) == 0) {
             if (sscanf(buffer + 7, "%d", &id) == 1) {
